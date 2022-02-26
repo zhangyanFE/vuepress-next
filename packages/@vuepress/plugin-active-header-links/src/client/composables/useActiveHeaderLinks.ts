@@ -50,6 +50,17 @@ export const useActiveHeaderLinks = ({
       document.body.scrollHeight
     )
 
+    const isAtPageTop = scrollTop === 0
+
+    if (isAtPageTop) {
+      // make sure route hash is clean
+      replaceWithoutScrollBehavior(router, {
+        hash: '',
+        force: true,
+      })
+      return
+    }
+
     // check if we have reached page bottom
     // notice the `scrollBottom` might not be exactly equal to `scrollHeight`, so we add offset here
     const isAtPageBottom = Math.abs(scrollHeight - scrollBottom) < offset
