@@ -1,4 +1,4 @@
-# 配置
+# 配置1
 
 <NpmBadge package="@vuepress/theme-default" />
 
